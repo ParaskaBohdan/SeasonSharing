@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block head %}
+   <link rel="stylesheet" type="text/css" href="{% static 'DataPicker.css' %}">
+{% endblock head %}
+   
+
+{% block body %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+  <script src="{% static 'DatePicker.js' %}"></script>
+  <h2>Create Event</h2>
+  <div class="p-5">
+   <div class="container">
+      <div class="box">
+         <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+               {{ field }}
+               <div class="form-error">{{ field.errors }}</div>
+            {% endfor %}
+            <button class="button-create" type="submit">Create</button>
+         </form>
+      </div>
+   </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+{% endblock %}

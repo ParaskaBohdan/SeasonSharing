@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+   <link rel="stylesheet" type="text/css" href="{% static 'EventsView.css' %}">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% endblock head %}
+   
+{% block login %}
+
+   <nav class="Nav-Items">
+      <a href="{% url 'login' %}"><Button class="btn btn-outline-success me-3" data-bs-toggle="modal" data-bs-target="#logmodal">Login</Button></a>
+      <a href="/Register/"><button class="btn btn-outline-success me-3" data-bs-toggle="modal" data-bs-target="#signmodal" >Register</button></a>
+   </nav>
+   
+{% endblock login %}
+   
+
+{% block body %}
+   <a href="/create/" class="create-event"><p > CreateEvent </p></a>
+      <section class="main-content">
+         <div class="container">
+            <div class="row">
+                {% for event in events %}
+               <div class="col-lg-4 col-sm-6 mb-3">
+                  <div class="Element">
+                     <div class="Elements-thumb">
+                        <a href="/edit/{{event.name}}"><img src="{{event.eventimages.url}}" alt=""></a>
+                     </div>
+                     <div class="Elements-details">
+                        <h4><a href="#" class="catcol">{{ event.name }}</a></h4>
+                        <p>{{ event.text }}</p>
+                        <div class="Elements-bottom-details d-flex justify-content-between">
+                           <div class="Elements-price">
+                              {{ event.publish_date|date:"d F" }}
+                           </div>
+                           <div class="Elements-links">
+                              {{ event.likes }}
+                              <i class="fas fa-thumbs-up"></i>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+      </section>
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock body %}

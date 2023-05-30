@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block head %}
+   <link rel="stylesheet" href="{% static 'Register.css' %}">
+{% endblock head %}
+   
+
+{% block body %}
+<div class="vidstup-div">     
+   <div class="main-w3layouts wrapper">
+      <div class="main-agileinfo">
+         <div class="agileits-top">
+            <form method="post">
+               {% csrf_token %}
+
+                  {% for f in form %}
+                  {{ f }}
+                  <div class="form-error">{{ f.errors }}</div>
+                  {% endfor %}
+
+               <input type="submit" value="Register">
+            </form>
+         </div>
+      </div>
+   </div>
+{% endblock %}

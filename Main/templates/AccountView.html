@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+   <link rel="stylesheet" type="text/css" href="{% static 'AccountView.css' %}">
+{% endblock head %}
+
+
+{% block body %}
+   
+   {% for acc in account %}
+      <p>{{ acc.name }} 111</p>
+         
+      <img src="{{acc.acimage.first.image.url}}" alt="Account Image">
+   {% endfor %}
+   
+{% endblock body %}
+   

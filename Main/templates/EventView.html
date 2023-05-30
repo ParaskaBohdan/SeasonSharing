@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+   <div class="contents">
+      {% comment %} <img src="{{event.eventimages.first.image.url}}" alt=""> {% endcomment %}
+      <h4><a href="#">{{ event.name }}</a></h4>
+         <p>{{ event.text }}</p>
+         <a href="/showEvents/{{event.season}}"><p>{{ event.season }}</p></a>
+         <p>{{ event.publish_date|date:"d F" }}</p>
+         <a href="/account/{{event.account}}"><p>{{ event.account }}</p></a>
+   </div>
+   <a href="/showEvents">назад</a>
+
+{% endblock body %}
+   

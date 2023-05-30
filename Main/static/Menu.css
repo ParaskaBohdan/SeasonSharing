@@ -1,0 +1,89 @@
+/* menu */
+
+.header {
+   position: sticky;
+   top: 0;
+   left: 0;
+   width: 100%;
+   padding: 20px;
+   background: rgba(200, 233, 151, 0.805);
+   display: flex;
+   justify-content: space-between;
+   align-self: center;
+   list-style-type: none;
+   z-index: 99;
+}
+
+.logo {
+   font-size: 2em;
+   color: black;
+   user-select: none;
+   text-decoration: none;
+}
+
+.Seasons {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.Season {
+   font-size: 1.3em;
+   padding-left: 15px;
+   text-decoration: none;
+   color: black;
+}
+
+.user-list {
+   width: 48px;
+   height: 48px;
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+.dropdownlist {
+   display: none;
+   position: absolute;
+   right: 0;
+   z-index: 111;
+   background: rgba(200, 233, 151, 0.805);
+   padding: 10px;
+   font-size: 1.2em;
+   font-family: Arial, sans-serif;
+   margin-top: 20px;
+   list-style-type: none;
+}
+
+.burger-menu {
+   display: none;
+   cursor: pointer;
+   padding: 10px;
+}
+
+
+.mobile-menu {
+   display: none;
+   background: rgba(200, 233, 151, 0.805);
+   padding: 10px;
+   font-size: 1.2em;
+   font-family: Arial, sans-serif;
+   position: absolute;
+   top: 100%;
+   right: 0;
+   list-style-type: none;
+   z-index: 99;
+}
+
+@media (max-width: 768px) {
+   .Seasons {
+      display: none;
+   }
+
+   .burger-menu {
+      display: block;
+   }
+
+   .mobile-menu {
+      display: none;
+   }
+}
