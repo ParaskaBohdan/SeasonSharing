@@ -9,7 +9,7 @@ class RegisterForm(forms.Form):
 
 class EventForm(forms.ModelForm):
     eventimages = forms.ImageField(label='Event Images',
-                                   widget=forms.FileInput(attrs={'multiple': True,
+                                   widget=forms.FileInput(attrs={
                                                                           'class': 'button-create',
                                                                           }))
     publish_date = forms.DateTimeField(input_formats=['%d/%m'],

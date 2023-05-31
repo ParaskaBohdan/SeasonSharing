@@ -1,0 +1,22 @@
+/* Content View Style */
+ 
+.contents{
+   width: 90%;
+   margin: 0 auto;
+   padding: 0 2.5%;
+   height: 90%;
+   display: flex;
+   align-items: center;
+   flex-flow: column;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+.el{
+   display: inherit;
+   align-items: center;
+   justify-content: center;
+   max-width: 32%;
+   min-height: 23%;
+   border: #1f1f1f, 2px solid;
+   border-radius: 20px;
+}

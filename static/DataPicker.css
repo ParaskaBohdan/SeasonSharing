@@ -1,0 +1,143 @@
+/* Data picker + Create Event Form */
+
+.container{
+	max-width: 600px;
+}
+.box{
+	padding: 50px;
+	background: #ffffff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.box form{
+   display: flex;
+   align-items: center;
+   justify-self: center;
+   flex-wrap: wrap;
+   flex-direction: row;
+   gap: 15px;
+}
+.box h3{
+	text-align: center;
+	padding: 0 0 30px 0;
+}
+.box form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+ 
+.box form label {
+   text-align: center;
+   margin-bottom: 10px;
+ }
+ 
+ form {
+   text-align: center;
+   font-size: 1.1em;
+   font-family: Arial, sans-serif;
+ }
+
+.box form input,
+ form select,
+ form textarea {
+   word-wrap: break-word;
+   max-width: 600px;
+   height: auto;
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 10px;
+   box-sizing: border-box;
+   border-radius: 10px;
+ }
+.box .form-picker{
+	max-width: 600px;
+	margin: 0 auto;	
+}
+.datepicker{
+	font-family: 'Exo 2', sans-serif;
+}
+.datepicker--cell.-range-to-{
+	background: rgba(248, 206, 236, 0.4);
+	border-color: rgba(248, 206, 236, 1);
+}
+.datepicker--cell.-selected-,.datepicker--cell.-selected-.-focus-{
+	background-color: #f8ceec;
+	color: #000000;
+}
+.datepicker--cell.-in-range-{
+	background: rgba(248, 206, 236, 0.2);
+}
+.datepicker--cell-day {
+    font-weight: 500;
+    color: #000000;
+}
+
+.form-picker{
+	height: 50px;
+	font-size: 16px;
+	color: #414D64;
+	background: #ffffff;
+	padding: 0 15px;
+	border: 2px solid #DADEEA;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	text-align: center;
+}
+textarea.form-picker{
+	height: 120px;
+	padding-top: 15px;
+}
+.form-picker-plaintext{
+	font-size: 18px;
+	color: #434343;
+}
+button.form-picker{
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.form-picker:focus{
+	border-color: #37B448;
+	-webkit-box-shadow: 0px 2px 6px rgba(55, 180, 72, .15);
+	-moz-box-shadow: 0px 2px 6px rgba(55, 180, 72, .15);
+	box-shadow: 0px 2px 6px rgba(55, 180, 72, .15);
+}
+
+.button-create {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-create:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-create {
+    padding: 10px 30px;
+  }
+}

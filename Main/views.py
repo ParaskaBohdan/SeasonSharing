@@ -81,25 +81,29 @@ def addEvent(request):
         'user' : request.user, 
     })
 
-# class EventCreateView(CreateView):
-#     model = Event
-#     form_class = EventForm
-#     template_name = 'event_create.html'
-#     success_url = '/edit/'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         return context
-
-#     def get_success_url(self):
-#         return reverse('edit', kwargs={'title': self.object.name})
-    
-#     def get_initial(self):
-#         initial = super().get_initial()
-#         initial['account'] = self.request.user
-#         print(self.request.user)
-#         return initial
-
+def edit(request, title): 
+         
+    book = Event.objects.filter(name=title).first() 
+ 
+    if request.method == 'POST': 
+        form = EventForm(request.POST, request.FILES, instance=book) 
+        if form.is_valid(): 
+            form.save() 
+            # return redirect('edit', title=book.name) 
+        else: 
+            errors = form.errors 
+            for field, error_msgs in errors.items(): 
+                for error_msg in error_msgs: 
+                    print(f"Помилка у полі {field}: {error_msg}") 
+    else: 
+        form = EventForm(instance=book) 
+ 
+    return render(request, "event_create.html", { 
+        "form": form, 
+        "header": 'Редагувати книгу', 
+        'authenticated' : request.user.is_authenticated, 
+        'user' : request.user 
+    })
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'Register.html'

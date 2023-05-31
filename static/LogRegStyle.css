@@ -1,0 +1,65 @@
+/* login register forms */
+.modal-body .table a {
+   margin-left: 0px;
+   margin-right: 0px;
+ }
+ 
+ .otstypcon {
+   margin-top: 250px;
+ }
+ 
+ .modal-content {
+   border-radius: 0px;
+   box-shadow: 0px 0px 80px 40px rgba(5, 28, 162, 0.65);
+   background-color: #1f1f1f;
+   color: rgb(0, 0, 0);
+ }
+ .modal-img {
+   max-width: 100px;
+ }
+ .modal .form-control {
+   background-color: transparent;
+   color: black;
+   border: none;
+   border-bottom: 2px solid #333333;
+   border-radius: 0px;
+ }
+ .modal .form-control:focus {
+   outline: none;
+   box-shadow: none;
+   border-color: #00009c;
+ }
+ .modal .form-control:-webkit-autofill, .modal .form-control:-webkit-autofill:hover, .modal .form-control:-webkit-autofill:focus, .modal .form-control:-webkit-autofill:active {
+   outline: none;
+   -webkit-box-shadow: 0 0 0 30px #1f1f1f inset !important;
+   -webkit-text-fill-color: white;
+ }
+ 
+ .btn {
+   padding: 5px 20px;
+   border-radius: 15px;
+ }
+ .btn-fillblue {
+   background-color: #00009c;
+   color: white;
+ }
+ .btn-fillblue:focus {
+   background-color: #00009c;
+   color: white;
+ }
+ .btn-fillblue:hover {
+   background-color: #000061;
+ }
+ .btn-fillblue:active {
+   border-color: #000061 !important;
+   background-color: #000061 !important;
+   box-shadow: 0px 0px 30px 5px rgba(5, 28, 162, 0.65);
+ }
+ .btn-close {
+   position: absolute;
+   right: 15px;
+   top: 15px;
+   z-index: 10;
+   background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+ }
+
