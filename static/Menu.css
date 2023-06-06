@@ -15,7 +15,6 @@
 }
 
 .logo {
-   font-size: 2em;
    color: black;
    user-select: none;
    text-decoration: none;
@@ -77,8 +76,20 @@
 @media (max-width: 768px) {
    .Seasons {
       display: none;
+      font-size: 12px;
    }
-
+   .Season{
+    font-size: 12px;
+   }
+   nav{
+    font-size: 12px;
+   }
+   .header{
+    flex-direction: column;
+   }
+   h2 .logo{
+    font-size: 8px;
+   }
    .burger-menu {
       display: block;
    }
