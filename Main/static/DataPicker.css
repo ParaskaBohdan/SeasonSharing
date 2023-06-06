@@ -4,7 +4,6 @@
 	max-width: 600px;
 }
 .box{
-	padding: 50px;
 	background: #ffffff;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -139,5 +138,11 @@ button.form-picker{
 @media (min-width: 768px) {
   .button-create {
     padding: 10px 30px;
+  }
+  .box{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
   }
 }

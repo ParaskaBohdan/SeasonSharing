@@ -8,10 +8,17 @@
    
 {% block login %}
 
-   <nav class="Nav-Items">
-      <a href="{% url 'login' %}"><Button class="btn btn-outline-success me-3" data-bs-toggle="modal" data-bs-target="#logmodal">Login</Button></a>
-      <a href="/Register/"><button class="btn btn-outline-success me-3" data-bs-toggle="modal" data-bs-target="#signmodal" >Register</button></a>
-   </nav>
+{% if autenticathed %}
+<nav class="Nav-Items" style="display: flex; flex-direction: raw; gap: 5px;">
+    <p class="Season"> {{ user }} </p>
+    <a href="{% url 'logout' %}"><button class="btn btn-outline-success me-3">Logout</button></a>
+</nav>
+{% else %}
+    <nav class="Nav-Items">
+        <a href="{% url 'login' %}"><Button class="btn btn-outline-success me-3">Login</Button></a>
+        <a href="/Register/"><button class="btn btn-outline-success me-3">Register</button></a>
+    </nav>
+{% endif %}
    
 {% endblock login %}
    
@@ -33,10 +40,6 @@
                         <div class="Elements-bottom-details d-flex justify-content-between">
                            <div class="Elements-price">
                               {{ event.publish_date|date:"d F" }}
-                           </div>
-                           <div class="Elements-links">
-                              {{ event.likes }}
-                              <i class="fas fa-thumbs-up"></i>
                            </div>
                         </div>
                      </div>

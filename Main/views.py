@@ -21,7 +21,9 @@ def index(request):
 
 
 def show(request):
-   return render(request, "blank.html")
+   return render(request, "blank.html", {
+       'authenticathed': request.user.is_authenticated,
+   })
 
 class EventsView(ListView):
    model = Event
@@ -38,6 +40,8 @@ class EventsView(ListView):
         form = RegisterForm()
         context['Form'] = form
         context['season'] = 'season'
+        context['autenticathed'] = self.request.user.is_authenticated
+        context['user'] = self.request.user.username
         return context
 
 class EventView(ListView):
@@ -57,6 +61,8 @@ class EventView(ListView):
         form = RegisterForm()
         context['Form'] = form
         context['season'] = 'season'
+        context['autenticathed'] = self.request.user.is_authenticated
+        context['user'] = self.request.user.username
         return context
 
 def addEvent(request): 
@@ -78,31 +84,30 @@ def addEvent(request):
         "events": event, 
         "form": form, 
         'authenticated' : request.user.is_authenticated, 
-        'user' : request.user, 
+        'user' : request.user.username, 
     })
 
 def edit(request, title): 
          
-    book = Event.objects.filter(name=title).first() 
- 
+    event = Event.objects.filter(name=title).first() 
     if request.method == 'POST': 
-        form = EventForm(request.POST, request.FILES, instance=book) 
+        form = EventForm(request.POST, request.FILES, instance=event) 
         if form.is_valid(): 
-            form.save() 
-            # return redirect('edit', title=book.name) 
+            form.save()
+            return redirect('ShowEv')
         else: 
             errors = form.errors 
             for field, error_msgs in errors.items(): 
                 for error_msg in error_msgs: 
                     print(f"Помилка у полі {field}: {error_msg}") 
     else: 
-        form = EventForm(instance=book) 
+        form = EventForm(instance=event) 
  
     return render(request, "event_create.html", { 
         "form": form, 
         "header": 'Редагувати книгу', 
         'authenticated' : request.user.is_authenticated, 
-        'user' : request.user 
+        'user' : request.user.username
     })
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
@@ -113,6 +118,9 @@ class RegisterUser(CreateView):
        login(self.request, user)
        return redirect('ShowEv')
    
+def logout_user(request): 
+    logout(request) 
+    return redirect('ShowEv')
 
 class LoginUser(LoginView):
     form_class = LoginUserForm
@@ -121,7 +129,17 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('ShowEv')
 
+class LoginUser(LoginView): 
+    form_class = LoginUserForm 
+    template_name = "login.html" 
+    def get_context_data(self, **kwargs): 
+        context = super().get_context_data(**kwargs) 
+        context['authenticated'] = self.request.user.is_authenticated 
+        return context 
+     
+    def get_success_url(self): 
+        return reverse_lazy('ShowEv')
 
 def logout_user(request):
     logout(request)
-    return redirect('login')
+    return redirect('ShowEv')

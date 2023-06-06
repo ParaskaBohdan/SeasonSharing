@@ -1,19 +1,81 @@
 {% extends 'layout.html' %}
+{% block login %}
 
+{% if autenticathed %}
+<nav class="Nav-Items" style="display: flex; flex-direction: raw; gap: 5px;">
+    <p class="Season"> {{ user }} </p>
+    <a href="{% url 'logout' %}"><button class="btn btn-outline-success me-3">Logout</button></a>
+</nav>
+{% else %}
+    <nav class="Nav-Items">
+        <a href="{% url 'login' %}"><Button class="btn btn-outline-success me-3">Login</Button></a>
+        <a href="/Register/"><button class="btn btn-outline-success me-3">Register</button></a>
+    </nav>
+{% endif %}
+   
+{% endblock login %}
 
 {% block body %}
-
+ <br>
    <div class="contents">
-      {% comment %} <img src="{{event.eventimages.first.image.url}}" alt=""> {% endcomment %}
-      <h4><a href="#">{{ event.name }}</a></h4>
-         <p>{{ event.text }}</p>
+    <div class="iamge">    
+        <img src="{{event.eventimages.url}}" alt="">
+    </div>    
+    <br>
+        <h4><a href="#">{{ event.name }}</a></h4>
+        <div class="content-text">
+        <p>{{ event.text }}</p>
+        </div>
          <a href="/showEvents/{{event.season}}"><p>{{ event.season }}</p></a>
          <p>{{ event.publish_date|date:"d F" }}</p>
          <a href="/account/{{event.account}}"><p>{{ event.account }}</p></a>
+         <a href="/showEvents">назад</a>
+         <a href="/edit/{{ event.name }}"> редагувати </a>
    </div>
-   <a href="/showEvents">назад</a>
-   <a href="/edit/{{ event.name }}"> редагувати </a>
 
+
+   
+   <style>
+    body{
+        margin: auto;
+        background-color: rgba(222, 242, 210, 0.708);
+    }
+    .contents{
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        padding-left: 4%;
+        padding-right: 4%;
+        text-align: center;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+        font: normal 20px "arial";
+        margin-bottom: 45px;
+    }
+    .iamge{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contents img{
+        height: 417px;
+        object-fit: contain;
+        border-radius: 12px;
+    }
+    .contents a{
+        text-decoration: none;
+        color: rgb(101, 160, 12);
+        font-weight: bold;
+    }
+    .contents a:hover{
+        color: rgb(29, 144, 245);
+    }
+    
+    .content-text{
+        width: 40%;
+    }
+</style>
 
 {% endblock body %}
-   
